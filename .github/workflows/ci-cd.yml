@@ -13,6 +13,7 @@ jobs:
     environment: poc
     strategy:
       matrix:
+        node-version: [16.x]
         appname: ['aws-codedeploy-app']
         deploy-group: ['poc-react-app']
         s3-bucket: ['aws-codedeploy-poc-react-app']
@@ -22,10 +23,15 @@ jobs:
       - name: Checkout the Repo
         uses: actions/checkout@v3
       
+      - name: Set up Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v3
+        with: 
+          node-version: ${{ matrix.node-version }}
+      
       # Build the React App
       - name: Install Dependencies and Build
         run: |          
-          npm i npm-run-all -g
+          npm install
           npm start
           npm run build
           
