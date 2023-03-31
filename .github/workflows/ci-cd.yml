@@ -25,6 +25,7 @@ jobs:
       # Build the React App
       - name: Install Dependencies and Build
         run: |
+          npm start
           npm run build
           
       # Install AWS CLI 2
