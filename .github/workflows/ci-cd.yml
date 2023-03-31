@@ -25,6 +25,7 @@ jobs:
       # Build the React App
       - name: Install Dependencies and Build
         run: |
+          npm install
           npm start
           npm run build
           
