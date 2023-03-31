@@ -25,7 +25,7 @@ jobs:
       # Build the React App
       - name: Install Dependencies and Build
         run: |
-          npm install
+          npm -g install npm@7.19.1
           npm start
           npm run build
           
